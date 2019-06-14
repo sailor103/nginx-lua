@@ -16,7 +16,7 @@ Lua nginx module version: 1.10.15
 1. Create your own **Dockerfile** ...
 
     ```
-    FROM danday74/nginx-lua
+    FROM qcyin/nginx-lua:1.16.0
     COPY /your/nginx.conf /nginx/conf/nginx.conf
     ```
 
@@ -33,7 +33,7 @@ Lua nginx module version: 1.10.15
 You can also just run it by `dokcer run` command, for example:
 
   ```
-  docker run -d -p 80:80 -v /yourpath/nginx.conf:/etc/nginx/nginx.conf firesh/ngingx-lua
+  docker run -d -p 80:80 -v /yourpath/nginx.conf:/etc/nginx/nginx.conf qcyin/ngingx-lua:1.16.0
   ```
 
 # Reference
