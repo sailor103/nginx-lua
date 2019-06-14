@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:latest
 
 MAINTAINER qcyin <qcyin@thoughtworks.com>
 
@@ -8,6 +8,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 ENV NGINX_VERSION 1.16.0
 ENV NGX_DEVEL_KIT_VERSION 0.3.0
 ENV LUA_NGINX_MODULE_VERSION 0.10.15
+ENV LUAJIT_VERSION 2.1.0_beta3-r4
 
 # Install LUAJIT
 RUN apk add --no-cache luajit
@@ -75,7 +76,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 		gd-dev \
 		geoip-dev \
 		perl-dev \
-		luajit-dev \
+		luajit-dev="${LUAJIT_VERSION}" \
 	&& export LUAJIT_LIB=/usr/lib \
 	&& export LUAJIT_INC=/usr/include/luajit-2.1 \
 	&& curl -fSL https://github.com/simpl/ngx_devel_kit/archive/v0.3.0.tar.gz -o /tmp/ndk.tar.gz \
