@@ -36,6 +36,15 @@ You can also just run it by `dokcer run` command, for example:
   docker run -d -p 80:80 -v /yourpath/nginx.conf:/etc/nginx/nginx.conf qcyin/nginx-lua:1.16.0
   ```
 
+# **NOTE!!!**
+
+If you use your own `nginx.conf` file, DO NOT forget to add this config in you `http` block.
+
+```
+# disable load resty core
+lua_load_resty_core off;
+```
+
 # Reference
 
 [firesh/nginx-lua: Official NGINX Dockerfiles](https://github.com/firesh/nginx-lua)
